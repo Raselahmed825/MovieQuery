@@ -20,17 +20,26 @@ function addMovie( movie ){
   return movieList;
 }
 
-var newMovie = {title:"Frozen" , year: "2013", length: 109, rating: "7.5", genre: "Animation"};
+var newMovie = {title:"Frozen" , year: "2013", length: 109, rating: "8.0", genre: "Animation"};
 console.log(addMovie(newMovie));
 
 function movieByRating(){
-
+  movieList.sort(function(a, b){ return a.rating - b.rating });
+    return movieList;
 }
 
 console.log(movieByRating());
 
 function findByTitle( title ){
-  //add code
-}
+
+var movies = [];
+ movieList.map(function(movie){
+   if(movie.title.toLowerCase().includes(title)){
+   movies.push(movie);
+    }
+  });
+ return movies;
+ }
 
 console.log(findByTitle("matrix"));
+console.log(findByTitle("epic"));
